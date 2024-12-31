@@ -25,6 +25,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import colors from './assets/colors/colors';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -76,7 +79,9 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+           
           <Section title="Step One">
+          <Icon name="rocket" size={30} color="#900" />
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
           </Section>
@@ -100,10 +105,13 @@ const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
+    
   },
   sectionTitle: {
+    fontFamily: "Poppins-Regular",
     fontSize: 24,
-    fontWeight: '600',
+    //fontWeight: '600',
+    color: colors.header,
   },
   sectionDescription: {
     marginTop: 8,
