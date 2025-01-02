@@ -34,7 +34,10 @@ export default Home = () => {
                     <View style={styles.headerBottom}></View>
                     <View style={styles.searchBarWrapper}>
                         <TextInput style={styles.searchBar} placeholder="Rechercher sur Kouer"/>
-                        <Feather name="search" size={16} color={'black'}/>
+                        <View style={styles.searchButton}>
+                            <Feather name="search" size={16} color={'black'}/>
+                        </View>
+                        
                     </View>
                 </View>
             </SafeAreaView>
@@ -79,6 +82,7 @@ const styles = StyleSheet.create({
         position: 'sticky',
         top: 0,
         zIndex: 1, 
+        
     },
     headerBottom: {
         backgroundColor: colors.header,
@@ -93,10 +97,19 @@ const styles = StyleSheet.create({
         bottom: -18,
         flexDirection: 'row',
         alignItems: 'baseline',
-    },
-    searchBar: {
         backgroundColor: 'blue',
         borderRadius: 20,
+        left: 0,
+        right: 0,
+        marginHorizontal: width * 0.05,
+        justifyContent: 'space-between',
+    },
+    searchButton: {
+        backgroundColor: 'green',
+        borderRadius: 20,
+        width: width * 0.12,
+        paddingVertical: height * 0.005,
+        alignItems: 'center',
     },
     content: {
         marginTop: height * 0.15, 
