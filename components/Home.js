@@ -29,7 +29,7 @@ export default Home = () => {
                         <View style={styles.searchBarWrapper}>
                             <TextInput style={styles.searchBar} placeholder="Rechercher sur Kouer"/>
                             <View style={styles.searchButton}>
-                                <Feather name="search" size={16} color={'black'}/>
+                                <Feather name="search" size={21} color={colors.background}/>
                             </View>
                             
                         </View>
@@ -54,7 +54,7 @@ export default Home = () => {
                         <View style={styles.searchBarWrapper}>
                             <TextInput style={styles.searchBar} placeholder="Rechercher sur Kouer"/>
                             <View style={styles.searchButton}>
-                                <Feather name="search" size={16} color={'black'}/>
+                                <Feather name="search" size={21} color={colors.background}/>
                             </View>
                             
                         </View>
@@ -79,7 +79,7 @@ const { height, width } = Dimensions.get('window');
 const scrollY = new Animated.Value(0);
 const stickyTop = scrollY.interpolate({
     outputRange: [height * (-0.12), 0],
-    inputRange: [height * 0.15, height * 0.23],
+    inputRange: [height * 0.1, height * 0.1],
     extrapolate: 'clamp',
 })
 
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.header,
         paddingHorizontal: 18,
         paddingVertical: height * 0.03,
-        paddingBottom: 20,
+        paddingBottom: height * 0.03,
         gap: 15,
         zIndex: 1,
     },
@@ -133,20 +133,23 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: -18,
         flexDirection: 'row',
-        alignItems: 'baseline',
+        alignItems: 'center',
         backgroundColor: 'blue',
         borderRadius: 20,
         left: 0,
         right: 0,
         marginHorizontal: width * 0.05,
         justifyContent: 'space-between',
+        gap: width * 0.36,
     },
     searchButton: {
-        backgroundColor: 'green',
+        backgroundColor: colors.header,
         borderRadius: 20,
-        width: width * 0.12,
+        width: width * 0.14,
         paddingVertical: height * 0.005,
         alignItems: 'center',
+        
+        
     },
     content: {
         marginTop: height * 0.15, 
