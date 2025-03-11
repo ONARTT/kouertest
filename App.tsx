@@ -29,7 +29,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './components/Home';
 import colors from './assets/colors/colors';
+import { enableScreens } from 'react-native-screens';
 
+
+enableScreens();
 const Stack = createNativeStackNavigator();
 
 export default function App() {

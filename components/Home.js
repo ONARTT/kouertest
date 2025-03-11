@@ -26,12 +26,11 @@ export default Home = () => {
                 <Animated.View style={[styles.dynamicHeader, {top: stickyTop,}]}>
                         <View style={styles.headerBottomFill}></View>
                         <View style={styles.headerBottom}></View>
-                        <View style={styles.searchBarWrapper}>
-                            <TextInput style={styles.searchBar} placeholder="Rechercher sur Kouer"/>
+                        <View style={[styles.searchBarWrapper, styles.elevation]}>
+                            <TextInput style={[styles.searchBar]} placeholder="Rechercher"/>
                             <View style={styles.searchButton}>
                                 <Feather name="search" size={21} color={colors.background}/>
                             </View>
-                            
                         </View>
                     
                 </Animated.View>
@@ -42,17 +41,15 @@ export default Home = () => {
                 
                 >   
                     <View style={styles.headerWrapper}>
-                        <Image source={require('../assets/images/logo.png')}
-                                style={styles.logo}
-                        />
-                        <Text style={styles.headerTitle}>Le bon à portée de main</Text>
+                        
+                        <Text style={styles.headerTitle}>Food App</Text>
                         
                     </View>
                 
                     <View style={styles.headerBottomWrapper}>
                         <View style={styles.headerBottom}></View>
-                        <View style={styles.searchBarWrapper}>
-                            <TextInput style={styles.searchBar} placeholder="Rechercher sur Kouer"/>
+                        <View style={[styles.searchBarWrapper, styles.elevation]}>
+                            <TextInput style={styles.searchBar} placeholder="Rechercher"/>
                             <View style={styles.searchButton}>
                                 <Feather name="search" size={21} color={colors.background}/>
                             </View>
@@ -79,7 +76,7 @@ const { height, width } = Dimensions.get('window');
 const scrollY = new Animated.Value(0);
 const stickyTop = scrollY.interpolate({
     outputRange: [height * (-0.12), 0],
-    inputRange: [height * 0.1, height * 0.1],
+    inputRange: [height * 0.055, height * 0.055],
     extrapolate: 'clamp',
 })
 
@@ -134,7 +131,7 @@ const styles = StyleSheet.create({
         bottom: -18,
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: 'blue',
+        backgroundColor: colors.background,
         borderRadius: 20,
         left: 0,
         right: 0,
@@ -160,5 +157,10 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#ddd',
     },
+    elevation: {
+        elevation: 20,
+        shadowColor: '#52006A',
+      },
+
 });
 
