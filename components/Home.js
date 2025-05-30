@@ -42,7 +42,7 @@ export default Home = () => {
                 >   
                     <View style={styles.headerWrapper}>
                         
-                        <Text style={styles.headerTitle}>Food App</Text>
+                        <Text style={styles.headerTitle}>La Petite Fabrique</Text>
                         
                     </View>
                 
@@ -66,7 +66,18 @@ export default Home = () => {
                         </Text>
                         ))}
                     </View>
+
+                    
+                    <View style={styles.footer}>
+                        <View contact>
+                            <Text style={styles.footerText}>Contact</Text>
+                            <Feather name="mail" size={21} color={colors.background}/>
+                            <Text></Text>
+                        </View>
+                        
+                    </View>
                 </ScrollView>
+                
             </SafeAreaView>
         </View>
     );
@@ -107,6 +118,7 @@ const styles = StyleSheet.create({
         color: colors.background,
         fontSize: 20,
         fontWeight: 700,
+        left: width * 0.25 ,
     },
     headerBottomWrapper: {
         
@@ -161,6 +173,19 @@ const styles = StyleSheet.create({
         elevation: 20,
         shadowColor: '#52006A',
       },
+
+    footer: {
+        backgroundColor: colors.header,
+        paddingHorizontal: 18,
+        paddingVertical: height * 0.03,
+        paddingBottom: height * 0.03,
+        
+    },
+
+    footerText: {
+        backgroundColor: colors.header,
+
+    }
 
 });
 
