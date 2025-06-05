@@ -1,7 +1,9 @@
-import { Background } from '@react-navigation/elements';
+import { Background, ResourceSavingView } from '@react-navigation/elements';
 import colors from '../assets/colors/colors';
 import * as React from 'react';
 import Feather from 'react-native-vector-icons/Feather';
+import CategoryScroll from './CategoryScroll';
+import  {items} from '../assets/data/itemsData';
 import {
     SafeAreaView,
     ScrollView,
@@ -59,20 +61,53 @@ export default Home = () => {
                 
 
                     {/* Scrollable Content */}
-                    <View contentContainerStyle={styles.content}>
+                    {/*<View contentContainerStyle={styles.content}>
                         {Array.from({ length: 50 }).map((_, index) => (
                         <Text key={index} style={styles.item}>
                             Item {index + 1}
                         </Text>
                         ))}
+                    </View>*/}
+                    <View style={styles.categorieBlock}>
+                        <Text style={styles.catTitle}>Produits Phares</Text>
+                        <CategoryScroll items = {items} />
+                    </View>
+
+                    <View style={styles.categorieBlock}>
+                        <Text style={styles.catTitle}>Nouveautés</Text>
+                        <CategoryScroll items = {items} />
+                    </View>
+
+                    <View style={styles.categorieBlock}>
+                        <Text style={styles.catTitle}>Catégorie 1</Text>
+                        <CategoryScroll items = {items} />
+                    </View>
+
+                    <View style={styles.categorieBlock}>
+                        <Text style={styles.catTitle}>Catégorie 2</Text>
+                        <CategoryScroll items = {items} />
                     </View>
 
                     
+                    
                     <View style={styles.footer}>
-                        <View contact>
+                        <View>
+                            <View style={styles.contact}>
                             <Text style={styles.footerText}>Contact</Text>
-                            <Feather name="mail" size={21} color={colors.background}/>
-                            <Text></Text>
+                                <View style={styles.contactContent}t>
+                                    <Feather name="mail" size={21} color={colors.background}/>
+                                    <Text style={styles.contactText}>lapetitefabrique@gmail.com</Text>
+                                </View>
+                                <View style={styles.contactContent}>
+                                    <Feather name="phone" size={21} color={colors.background}/>
+                                    <Text style={styles.contactText}>06 76 51 14 51</Text>
+                                </View>
+                                
+                            </View>
+                        </View>
+                        <View style={styles.socials}>
+                            <Feather name="instagram" size={30} color={colors.background} style={styles.socialsLogo}/>
+                            <Feather name="twitter" size={30} color={colors.background} style={styles.socialsLogo}/>
                         </View>
                         
                     </View>
@@ -179,13 +214,53 @@ const styles = StyleSheet.create({
         paddingHorizontal: 18,
         paddingVertical: height * 0.03,
         paddingBottom: height * 0.03,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        
         
     },
 
     footerText: {
-        backgroundColor: colors.header,
+        color: colors.background,
+        fontSize: 21,
+        fontWeight: 'bold',
+    },
 
-    }
+    contactContent: {
+        flexDirection: 'row',
+        alignContent: 'flex-start',
+        marginTop: height * 0.01,
+    },
+    
+    contactText: {
+        marginLeft: width * 0.025,
+        color: colors.background,
+    },
+
+    socials: {
+        flexDirection: 'row',
+        marginTop: height * 0.01,
+    },
+
+    socialsLogo: {
+        marginRight: 5,
+
+    },
+    
+    categorieBlock: {
+        marginLeft: width * 0.035,
+        marginBottom: height * 0.025,
+
+    },
+
+    catTitle: {
+        fontWeight: 'bold',
+        fontSize: 21,
+        marginTop: height * 0.05,
+        marginBottom: height * 0.025,
+    },
+
+ 
 
 });
 
