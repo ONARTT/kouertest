@@ -4,6 +4,7 @@ import * as React from 'react';
 import Feather from 'react-native-vector-icons/Feather';
 import CategoryScroll from './CategoryScroll';
 import  {items} from '../assets/data/itemsData';
+import { useState } from 'react';
 import {
     SafeAreaView,
     ScrollView,
@@ -21,6 +22,23 @@ import {
 Feather.loadFont();
 
 export default Home = () => {
+
+    const [searchText, setSearchText] = useState('');
+    const [filteredItems, setFilteredItems] = useState(items)
+
+    const handleSearch = (text) => {
+        
+        setSearchText(text);
+
+        const filtered = items.filter(item => item.title.toLowerCase().includes(text.toLowerCase()));
+        
+        setFilteredItems(filtered);
+    }
+
+    
+
+    
+
     return  (
         <View style={styles.container}>
             {/* Header */}
@@ -29,7 +47,7 @@ export default Home = () => {
                         <View style={styles.headerBottomFill}></View>
                         <View style={styles.headerBottom}></View>
                         <View style={[styles.searchBarWrapper, styles.elevation]}>
-                            <TextInput style={[styles.searchBar]} placeholder="Rechercher"/>
+                            <TextInput style={[styles.searchBar]} placeholder="Rechercher" value={searchText} onChangeText={handleSearch}/>
                             <View style={styles.searchButton}>
                                 <Feather name="search" size={21} color={colors.background}/>
                             </View>
@@ -51,7 +69,7 @@ export default Home = () => {
                     <View style={styles.headerBottomWrapper}>
                         <View style={styles.headerBottom}></View>
                         <View style={[styles.searchBarWrapper, styles.elevation]}>
-                            <TextInput style={styles.searchBar} placeholder="Rechercher"/>
+                            <TextInput style={[styles.searchBar]} placeholder="Rechercher" value={searchText} onChangeText={handleSearch}/>
                             <View style={styles.searchButton}>
                                 <Feather name="search" size={21} color={colors.background}/>
                             </View>
@@ -70,7 +88,7 @@ export default Home = () => {
                     </View>*/}
                     <View style={styles.categorieBlock}>
                         <Text style={styles.catTitle}>Produits Phares</Text>
-                        <CategoryScroll items = {items} />
+                        <CategoryScroll items = {filteredItems} />
                     </View>
 
                     <View style={styles.categorieBlock}>

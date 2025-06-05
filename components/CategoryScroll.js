@@ -20,7 +20,7 @@ export default function CategoryScroll ({ items = [] }) {
     return (
         <ScrollView horizontal = {true} style={styles.catScrollBox}>
         {items.map((item, index) => (
-            <View style={styles.itemBox}>
+            <View key={`${item.title}-${index}`}  style={styles.itemBox}>
                 <Image source={item.image} style={styles.itemImage}/>
                 <View>
                     <Text style={styles.itemTitle}>{item.title}</Text>
