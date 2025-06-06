@@ -5,6 +5,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import CategoryScroll from './CategoryScroll';
 import  {items} from '../assets/data/itemsData';
 import { useState } from 'react';
+import DisplaySlider from './DisplaySlider';
 import {
     SafeAreaView,
     ScrollView,
@@ -76,7 +77,7 @@ export default Home = () => {
                             
                         </View>
                     </View>
-                
+                    
 
                     {/* Scrollable Content */}
                     {/*<View contentContainerStyle={styles.content}>
@@ -86,6 +87,9 @@ export default Home = () => {
                         </Text>
                         ))}
                     </View>*/}
+
+                    <DisplaySlider images={items}/>
+
                     <View style={styles.categorieBlock}>
                         <Text style={styles.catTitle}>Produits Phares</Text>
                         <CategoryScroll items = {filteredItems} />
